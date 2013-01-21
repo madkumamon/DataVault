@@ -1,0 +1,40 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+.container-narrow{
+  margin: 0 auto;
+  max-width: 900px;
+  .logo h1{
+    font-size: 72px;
+    line-height: 1;
+  }
+  .info{
+    margin: 5px ;
+  }
+
+  .form{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #cfcfcf;
+    box-shadow: 0 0px 6px rgba(0, 0, 0, 0.2)inset;
+    hr{
+      margin:0 0 10px;
+    }
+    .submit_btn{
+      margin: 0 0 10px;
+    }
+
+    span.error {
+      color: #D00;
+      padding-left: 5px;
+      font-size: 12px;
+    }
+  }
+}
