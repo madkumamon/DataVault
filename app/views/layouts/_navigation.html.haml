@@ -1,11 +1,9 @@
 .masthead
   = link_to "Logout", destroy_user_session_path, :method => :delete, :class=> "btn btn-danger logout"
   %ul.nav.nav-pills.pull-right
-    %li{class: controller_name == 'main' ? 'active' : nil}
-      = link_to "Home", main_index_path
-    %li
-      %a{:href => "#"} About
-    %li
-      %a{:href => "#"} Contact
+    %li{class: controller_name == 'client_application' ? 'active' : nil}
+      = link_to "Applications", root_path
+    %li{class: controller_name == 'stored_data' ? 'active' : nil}
+      = link_to "Stored Data", stored_data_path
   %h3.muted DataVault
 %hr

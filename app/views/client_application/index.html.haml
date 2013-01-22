@@ -1,0 +1,17 @@
+%h3 Register your application:
+.input-append
+  = form_for(:client_application, :url => '/client_application', :method=>"POST") do |f|
+    = f.text_field :name, :required => true, :placeholder=> "Type name of your application here...", :style=>"width:292px;",:id=>"appendedInputButton", :class=>"span2"
+    = f.submit "Create", :class => 'btn btn-primary'
+
+.table_container
+  %table.table.table-hover.table-bordered
+    %thead
+      %tr
+        %th Application name
+        %th.token Token
+    %tbody
+      - @client_apps.each do |app|
+        %tr
+          %td= app.name
+          %td.token_hold= app.access_token

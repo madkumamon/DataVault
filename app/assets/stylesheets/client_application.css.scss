@@ -1,0 +1,13 @@
+// Place all the styles related to the ClientApplication controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table_container{
+  width: 800px;
+  .token{
+    width: 380px;
+  }
+  .token_hold{
+    text-align: center;
+  }
+}
