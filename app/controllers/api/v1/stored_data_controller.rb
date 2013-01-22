@@ -1,10 +1,10 @@
 module Api
   module V1
-    class StoredDataController < ApplicationController
+    class StoredDataController < ApiController
       respond_to :json
 
       def index
-        respond_with StoredData.all
+        respond_with StoredData.where(:application_id=>@client_app)
       end
 
       def show
@@ -12,7 +12,7 @@ module Api
       end
 
       def create
-        respond_with StoredData.create(params[:stored_data])
+        respond_with @client_app.stored_datas.create(params[:stored_datum])
       end
 
       def update

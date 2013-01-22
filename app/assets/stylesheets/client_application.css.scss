@@ -11,3 +11,13 @@
     text-align: center;
   }
 }
+
+.masthead{
+  .nav-tabs > li > a, .nav-pills > li > a {
+    line-height: 10px;
+    margin-right: 6px;
+  }
+  .logout{
+    float:right;
+  }
+}
