@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(:version => 20130122144321) do
   create_table "stored_data", :force => true do |t|
     t.string   "key"
     t.text     "value"
-    t.integer  "application_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "client_application_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
   create_table "users", :force => true do |t|

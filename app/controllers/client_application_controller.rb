@@ -5,11 +5,10 @@ class ClientApplicationController < ApplicationController
 
   def create
     @client_app = current_user.client_applications.new(params[:client_application])
-    if @client_app.save
-      redirect_to client_application_index_path, notice: "Application was successfully created."
-    else
-      redirect_to client_application_index_path, alert: "Application has not been created!"
-    end
+    flash_result = @client_app.save ? {notice: "Application was successfully created."} :
+      {alert: "Application has not been created!"}
+
+    redirect_to client_application_index_path, flash_result
   end
 
 end

@@ -1,9 +1,12 @@
 %h1 Stored Data
-%table#stored_data
-  %tr
-    %th Key
-    %th Value
-  - @stored_datum.each do |data|
-    %tr
-      %td= data.key
-      %td= data.value
+.table_container
+  %table.table.table-hover.table-bordered
+    %thead
+      %tr
+        %th Key
+        %th Value
+    %tbody
+      - @stored_datum.each do |data|
+        %tr
+          %td= data.key
+          %td= data.value

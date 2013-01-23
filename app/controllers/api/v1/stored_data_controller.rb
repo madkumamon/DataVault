@@ -4,11 +4,11 @@ module Api
       respond_to :json
 
       def index
-        respond_with StoredData.where(:application_id=>@client_app)
+        respond_with StoredData.where(:application_id => @client_app)
       end
 
       def show
-        respond_with StoredData.find(params[:id])
+        respond_with StoredData.where(:id => params[:id])
       end
 
       def create
@@ -16,7 +16,9 @@ module Api
       end
 
       def update
-        respond_with StoredData.update(params[:id], params[:stored_data])
+        @res = StoredData.where(params[:id])
+        respond_with @res.update_all(params[:stored_data])
+        #respond_with StoredData.update(params[:id], params[:stored_data])
       end
 
       def destroy

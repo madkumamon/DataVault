@@ -7,10 +7,8 @@ DataVault::Application.routes.draw do
     end
   end
 
-
   devise_for :users
   resources :main
   resources :client_application
   resources :stored_data
-
 end
