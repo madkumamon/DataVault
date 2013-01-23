@@ -1,44 +1,54 @@
 + Test project DataVault
 
-1.Clone project:
-    sudo apt-get install git curl
-    git clone git@github.com:hiddenfile/autoshop.git
-    cd autoshop //переход в каталог сайта
+1.Unzip project:
+  ~$ unzip DataVault.zip -d destination_folder
 
-2.Create gem-set:
-    rvm --default use 1.9.2@autoshop --create
+2.Enter projec folder:
+  ~$ cd ../DataVault
 
-3.Install gems:
-    gem install bundler
-    bundle install
+3.Use .rvmrc:
+  Do you wish to trust this .rvmrc file? (/home/sedzen/work/ruby-blog/.rvmrc)
+  y[es], n[o], v[iew], c[ancel]> y
 
-4.Install Passenger:
-    passenger-install-nginx-module
-    passenger start
+4.Install gems:
+  gem install bundler
+  bundle install
 
-5.Install PostgreSQL:
-    sudo apt-get install postgresql pgadmin3
-    sudo -u postgres psql postgres
-    \password postgres
-    sudo -u postgres createdb mydb
+5.Install Postgresql:
+  http://blog.lot24media.co.za/2012/11/14/how-to-install-postgresql-9-1-on-ubuntu-12-10-linux/
 
-6.Install Redis:
-    curl -O http://redis.googlecode.com/files/redis-2.2.2.tar.gz
-    tar xzf redis-2.2.2.tar.gz
-    cd redis-2.2.2
-    make
-    cp src/redis-server src/redis-cli /usr/bin
-    redis-server //using redis-server locally
-    redis-server /path/to/redis.conf
+6.Configure database.yml:
+  rename database.yml.example to database.yml
+  change username and password.
 
-7.Create db and test content:
-    rake db:create
-    rake db:migrate
-    rake data:reset_admin
-    rake data:add_content
+7.Create database:
+  rake db:create:all
+  rake db:setup
 
+8.Run server:
+  rails s
+  "-p other port" for change port.
 
-8.Run tests:
-    rake db:schema:dump
-    rake db:test:prepare
-    rake test
+9.Enter the site :
+  In your browser go to "http://localhost:3000/"
+  Sign up or Sign in.
+  Create Application with unique access_token.
+
+10.Test with HTTPRequestor plug-in in Firefox:
+  GET data from the site:
+    url: "http://localhost:3000/api/v1/stored_data?access_token=APPLICATION_ACCESS_TOKEN"
+  POST data to the site:
+    url: "http://localhost:3000/api/v1/stored_data?access_token=APPLICATION_ACCESS_TOKEN&stored_datum%5Bkey%5D=admin&stored_datum%5Bvalue%5D=admin%40mail.com"
+
+  use "rails c" for generating params for POST request:
+    1.9.3p327 :008 > [{"stored_datum"=>{"key"=>"admin", "value"=>"admin@mail.com"}}].to_param
+     => "stored_datum%5Bkey%5D=admin&stored_datum%5Bvalue%5D=admin%40mail.com"
+  make url:
+     url: "http://localhost:3000/api/v1/stored_data?access_token=APPLICATION_ACCESS_TOKEN" + "&stored_datum%5Bkey%5D=admin&stored_datum%5Bvalue%5D=admin%40mail.com"
+
+11. Your opportunities:
+  Sign_up or Sign_in with unique email and password.
+  Add Application and see list of all yours applications.
+  See the data collected for each application.
+
+  Using curl or HTTPRequestor you can take or create all data for application using access_token.

@@ -1,4 +1,9 @@
 %h1 Stored Data
+.input-append
+  = form_for @search, :url => "/stored_data", :html => {:method => :get} do |f|
+    = f.collection_select :client_application_id_equals, ClientApplication.all, :id, :name, :include_blank => true
+    = f.submit "Search", :class => 'btn btn-primary'
+
 .table_container
   %table.table.table-hover.table-bordered
     %thead

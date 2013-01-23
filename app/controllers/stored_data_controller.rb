@@ -2,7 +2,10 @@ class StoredDataController < ApplicationController
   before_filter :preinit, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @stored_datum = StoredData.all
+    @search = StoredData.search(params[:search])
+    @stored_datum = @search.all   # load all matching records
+                              # @articles = @search.relation # Retrieve the relation, to lazy-load in view
+                              # @articles = @search.paginate(:page => params[:page]) # Who doesn't love will_paginate?
   end
 
   def show;  end

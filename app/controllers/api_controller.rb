@@ -4,7 +4,7 @@ class ApiController < ActionController::Base
 
 private
   def restrict_access
-     @client_app = ClientApplication.find_by_access_token(params[:access_token])
+     @client_app = ClientApplication.find_by_token(params[:token])
      head :unauthorized unless @client_app
   end
 end
