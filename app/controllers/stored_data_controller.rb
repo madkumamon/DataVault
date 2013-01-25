@@ -1,5 +1,6 @@
 class StoredDataController < ApplicationController
   before_filter :preinit, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_app
 
   def index
     @search = StoredData.search(params[:search])
@@ -41,5 +42,8 @@ class StoredDataController < ApplicationController
 private
   def preinit
     redirect_to root_path, :alert => "Not found" if (@stored_data = StoredData.find_by_id(params[:id])).blank?
+  end
+  def find_app
+    @applications = current_user.oauth_applications
   end
 end

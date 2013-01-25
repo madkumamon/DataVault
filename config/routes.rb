@@ -1,7 +1,8 @@
 DataVault::Application.routes.draw do
-  use_doorkeeper
-
-  root :to => "client_application#index"
+  use_doorkeeper do
+    controllers :applications => 'oauth/applications'
+  end
+  root :to => "oauth/applications#index"
 
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
@@ -11,6 +12,5 @@ DataVault::Application.routes.draw do
 
   devise_for :users
   resources :main
-  resources :client_application
   resources :stored_data
 end

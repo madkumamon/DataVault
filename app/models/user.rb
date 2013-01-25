@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
-  has_many :client_applications, :dependent => :destroy
+  has_many :oauth_applications, class_name: 'Doorkeeper::Application', as: :owner
 
   validates :email, :presence => true, :uniqueness => true
   validates :password, :presence => true, :confirmation => true, :on => :create

@@ -41,6 +41,20 @@ module DataVault
       Devise::PasswordsController.layout 'welcome'
     end
 
+    config.to_prepare do
+      # Base layout. Uses app/views/layouts/my_layout.html.erb
+      Doorkeeper::ApplicationController.layout "application"
+
+      # Only Applications list
+      Doorkeeper::ApplicationsController.layout "application"
+
+      # Only Authorization endpoint
+      Doorkeeper::AuthorizationsController.layout "application"
+
+      # Only Authorized Applications
+      Doorkeeper::AuthorizedApplicationsController.layout "application"
+    end
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 

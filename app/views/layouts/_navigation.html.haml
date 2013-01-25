@@ -1,7 +1,7 @@
 .masthead
   = link_to "Logout", destroy_user_session_path, :method => :delete, :class=> "btn btn-danger logout"
   %ul.nav.nav-pills.pull-right
-    %li{class: controller_name == 'client_application' ? 'active' : nil}
+    %li{class: controller_name == 'applications' ? 'active' : nil}
       = link_to "Applications", root_path
     %li{class: controller_name == 'stored_data' ? 'active' : nil}
       = link_to "Stored Data", stored_data_path
