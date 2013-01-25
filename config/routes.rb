@@ -1,4 +1,6 @@
 DataVault::Application.routes.draw do
+  use_doorkeeper
+
   root :to => "client_application#index"
 
   namespace :api, defaults: {format: 'json'} do

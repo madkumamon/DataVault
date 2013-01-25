@@ -3,7 +3,7 @@ class CreateStoredData < ActiveRecord::Migration
     create_table :stored_data do |t|
       t.string :key
       t.text :value
-      t.integer :client_application_id
+      t.integer :application_id
 
       t.timestamps
     end
