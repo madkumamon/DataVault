@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130125142104) do
 
-  create_table "client_applications", :force => true do |t|
-    t.string   "name"
-    t.string   "token"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "oauth_access_grants", :force => true do |t|
     t.integer  "resource_owner_id", :null => false
     t.integer  "application_id",    :null => false
